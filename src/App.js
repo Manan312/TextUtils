@@ -2,7 +2,7 @@ import "./App.css";
 import About from "./components/About";
 import Navbar from "./components/Navbar";
 import TextForm from "./components/TextForm";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 function App() {
   const toggleDarkMode = () => {
     // document.getElementById("darkMode").classList.toggle("bg-light");
@@ -28,11 +28,11 @@ function App() {
         </div>
       </div>
       <div className="container my-3">
-        <TextForm heading={"Enter the Text to Analyse Below"} />
+        <Routes>
+          <Route path="/" element={<TextForm heading="Enter the Text to Analyse Below" />} />
+          <Route path="/about" element={<About title="About Text Utils" />} />
+        </Routes>
       </div>
-      {/* <div className="container my-3">
-        <About title="About Text Utils" />
-      </div> */}
     </>
   );
 }
