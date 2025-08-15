@@ -1,31 +1,38 @@
 import "./App.css";
-
+import About from "./components/About";
+import Navbar from "./components/Navbar";
+import TextForm from "./components/TextForm";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 function App() {
+  const toggleDarkMode = () => {
+    // document.getElementById("darkMode").classList.toggle("bg-light");
+    // document.getElementById("darkMode").classList.toggle("text-dark");
+    document.body.classList.toggle("bg-dark");
+    document.body.classList.toggle("text-light");
+  };
   return (
     <>
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
-  <div className="container-fluid">
-    <a className="navbar-brand" href="/">Text Utils</a>
-    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span className="navbar-toggler-icon"></span>
-    </button>
-    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-        <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="/">Home</a>
-        </li>
-        <li className="nav-item">
-          <a className="nav-link" href="/">About</a>
-        </li>
-        
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
+      <Navbar title="Text Utils" aboutText="About Text Utils" />
+      <div className="container my-3" style={{ textAlign: "center" }}>
+        <div className="form-check form-switch form-check-reverse">
+          <label className="form-check-label" htmlFor="switchCheckDefault" id="darkModeLable">
+            Dark Mode
+          </label>
+          <input
+            className="form-check-input"
+            type="checkbox"
+            onClick={toggleDarkMode}
+            role="switch"
+            id="switchCheckDefault"
+          ></input>
+        </div>
+      </div>
+      <div className="container my-3">
+        <TextForm heading={"Enter the Text to Analyse Below"} />
+      </div>
+      {/* <div className="container my-3">
+        <About title="About Text Utils" />
+      </div> */}
     </>
   );
 }
