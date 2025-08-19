@@ -1,13 +1,22 @@
 import React from "react";
 
-export default function About({ title = "About Text Utils" }) {
-  
+export default function About({ title = "About Text Utils", mode = "light" }) {
   return (
     <>
       <div className="container">
         <h2>{title}</h2>
-        <div className="accordion" id="accordionExample">
-          <div className="accordion-item">
+        <div
+          className="accordion"
+          id="accordionExample"
+          style={{
+            backgroundColor: mode === "dark" ? "#333" : "#fff",
+            color: mode === "dark" ? "#fff" : "#000",
+          }}
+        >
+          <div className="accordion-item" style={{
+            backgroundColor: mode === "dark" ? "#333" : "#fff",
+            color: mode === "dark" ? "#fff" : "#000",
+          }}>
             <h2 className="accordion-header">
               <button
                 className="accordion-button"
@@ -38,7 +47,10 @@ export default function About({ title = "About Text Utils" }) {
               </div>
             </div>
           </div>
-          <div className="accordion-item">
+          <div className="accordion-item" style={{
+            backgroundColor: mode === "dark" ? "#333" : "#fff",
+            color: mode === "dark" ? "#fff" : "#000",
+          }}>
             <h2 className="accordion-header">
               <button
                 className="accordion-button collapsed"
@@ -69,7 +81,10 @@ export default function About({ title = "About Text Utils" }) {
               </div>
             </div>
           </div>
-          <div className="accordion-item">
+          <div className="accordion-item" style={{
+            backgroundColor: mode === "dark" ? "#333" : "#fff",
+            color: mode === "dark" ? "#fff" : "#000",
+          }}>
             <h2 className="accordion-header">
               <button
                 className="accordion-button collapsed"
@@ -101,7 +116,6 @@ export default function About({ title = "About Text Utils" }) {
             </div>
           </div>
         </div>
-        
       </div>
     </>
   );

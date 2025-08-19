@@ -1,12 +1,15 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { NavLink } from "react-router-dom";
 
 export default function Navbar({
   title = "Set title here",
   aboutText = "About Text Utils",
+  mode = "light",
+  toggleButtonColor,
 }) {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary">
+    <nav className={`navbar navbar-expand-lg navbar-${mode} bg-${mode}`}>
       <div className="container-fluid">
         <a className="navbar-brand" href="/">
           {title}
@@ -22,30 +25,70 @@ export default function Navbar({
         >
           <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/">
+              <NavLink
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? "active" : ""}`
+                }
+                to="/"
+              >
                 Home
-              </a>
+              </NavLink>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/about">
+              <NavLink
+                className={({ isActive }) =>
+                  `nav-link ${isActive ? "active" : ""}`
+                }
+                to="/about"
+              >
                 {aboutText}
+              </NavLink>
+            </li>
+
+            <li className={`nav-item dropdown`}>
+              <a
+                className="nav-link dropdown-toggle"
+                href="/"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Change Button Color
               </a>
+              <ul
+                className={`dropdown-menu ${
+                  mode === "dark" ? "dropdown-menu-dark" : ""
+                }`}
+              >
+                <li>
+                  <button
+                    className="dropdown-item"
+                    href="/"
+                    onClick={() => {
+                      toggleButtonColor("red");
+                    }}
+                  >
+                    Red
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className="dropdown-item"
+                    href="/"
+                    onClick={() => {
+                      toggleButtonColor("green");
+                    }}
+                  >
+                    Green
+                  </button>
+                </li>
+                {/* <li><button className="dropdown-item" href="/" onClick={()=>{toggleButtonColor('blue')}}>Blue</button></li> */}
+              </ul>
             </li>
           </ul>
-          {/* <form className="d-flex" role="search">
-            <input
-              className="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button className="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form> */}
         </div>
       </div>
     </nav>

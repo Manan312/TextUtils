@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export default function TextForm({ heading }) {
+export default function TextForm({ heading, mode = 'light',showAlert,buttonColor }) {
   const [text, setText] = useState("");
   const handleOnChange = (event) => {
     //console.log("Text changed");
@@ -11,17 +11,20 @@ export default function TextForm({ heading }) {
     //console.log("Button clicked!");
     // setText(text.toUpperCase());
     setText(text.toUpperCase());
+    showAlert("Converted to Uppercase", "success");
   };
   const handleLowerClick = () => {
     //console.log("Button clicked!");
     // setText(text.toUpperCase());
     setText(text.toLowerCase());
+    showAlert("Converted to Lowercase", "success");
   };
   const handleSentenceCaseClick = () => {
     let newText = text.split(" ").map((sentence) => {
       return sentence.charAt(0).toUpperCase() + sentence.slice(1).toLowerCase();
     }).join(" ");
     setText(newText);
+    showAlert("Converted to Sentence Case", "success");
   };
   const handleVowelCountClick = () => {
     let vowels=document.getElementById("vowelconsonants");
@@ -30,6 +33,14 @@ export default function TextForm({ heading }) {
     }else{
       vowels.style.display="none";
     }
+    showAlert("Vowel and Consonant count toggled", "info");
+  };
+  const handleCopyToClipboard = () => {
+    navigator.clipboard.writeText(text);
+  };
+  const handleRemoveExtraSpaces = () => {
+    let newText=text.split(/[ ]+/);
+    setText(newText.join(" "));
   };
   return (
     <>
@@ -40,21 +51,26 @@ export default function TextForm({ heading }) {
           id="myBox"
           rows="8"
           onChange={handleOnChange}
+          onMouseOut={handleRemoveExtraSpaces}
           placeholder="Enter text here"
           value={text}
+          style={{ backgroundColor: mode === 'dark' ? '#333' : '#fff', color: mode === 'dark' ? '#fff' : '#000' }}
         ></textarea>
         <br />
-        <button className="btn btn-primary mx-2 my-2" onClick={handleUpClick}>
+        <button className={`btn ${buttonColor==='default' ? 'btn-primary' : ""} mx-2 my-2`} style={buttonColor==='default' ? {} : { backgroundColor: buttonColor,color:"white" }}  onClick={handleUpClick}>
           Convert To Uppercase
         </button>
-        <button className="btn btn-primary mx-2 my-2" onClick={handleLowerClick}>
+        <button className={`btn ${buttonColor==='default' ? 'btn-primary' : ""} mx-2 my-2`} style={buttonColor==='default' ? {} : { backgroundColor: buttonColor,color:"white" }}  onClick={handleLowerClick}>
           Convert To Lowercase
         </button>
-        <button className="btn btn-primary mx-2 my-2" onClick={handleVowelCountClick}>
+        <button className={`btn ${buttonColor==='default' ? 'btn-primary' : ""} mx-2 my-2`} style={buttonColor==='default' ? {} : { backgroundColor: buttonColor,color:"white" }}  onClick={handleVowelCountClick}>
           Count Vowels and Consonants
         </button>
-        <button className="btn btn-primary mx-2 my-2" onClick={handleSentenceCaseClick}>
+        <button className={`btn ${buttonColor==='default' ? 'btn-primary' : ""} mx-2 my-2`} style={buttonColor==='default' ? {} : { backgroundColor: buttonColor,color:"white" }}  onClick={handleSentenceCaseClick}>
           Convert To Sentence Case
+        </button>
+        <button className={`btn ${buttonColor==='default' ? 'btn-primary' : ""} mx-2 my-2`} style={buttonColor==='default' ? {} : { backgroundColor: buttonColor,color:"white" }}  onClick={handleCopyToClipboard}>
+          Copy to Clipboard
         </button>
         {/* <Button /> */}
       </div>
