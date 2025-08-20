@@ -11,7 +11,7 @@ export default function Navbar({
   return (
     <nav className={`navbar navbar-expand-lg navbar-${mode} bg-${mode}`}>
       <div className="container-fluid">
-        <a className="navbar-brand" href="/">
+        <a className="navbar-brand" href="/TextUtils">
           {title}
         </a>
         <button
@@ -32,7 +32,7 @@ export default function Navbar({
                 className={({ isActive }) =>
                   `nav-link ${isActive ? "active" : ""}`
                 }
-                to="/"
+                to="/TextUtils"
               >
                 Home
               </NavLink>

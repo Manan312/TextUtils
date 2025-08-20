@@ -57,7 +57,7 @@ function App() {
       <div className="container my-3">
         <Routes>
           <Route
-             path="/"
+             path="/TextUtils"
             element={
               <TextForm
                 showAlert={showAlert}
