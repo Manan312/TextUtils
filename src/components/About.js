@@ -13,10 +13,13 @@ export default function About({ title = "About Text Utils", mode = "light" }) {
             color: mode === "dark" ? "#fff" : "#000",
           }}
         >
-          <div className="accordion-item" style={{
-            backgroundColor: mode === "dark" ? "#333" : "#fff",
-            color: mode === "dark" ? "#fff" : "#000",
-          }}>
+          <div
+            className="accordion-item"
+            style={{
+              backgroundColor: mode === "dark" ? "#333" : "#fff",
+              color: mode === "dark" ? "#fff" : "#000",
+            }}
+          >
             <h2 className="accordion-header">
               <button
                 className="accordion-button"
@@ -25,8 +28,12 @@ export default function About({ title = "About Text Utils", mode = "light" }) {
                 data-bs-target="#collapseOne"
                 aria-expanded="true"
                 aria-controls="collapseOne"
+                style={{
+                  backgroundColor: mode === "dark" ? "#333" : "#fff",
+                  color: mode === "dark" ? "#fff" : "#000",
+                }}
               >
-                Accordion Item #1
+                About Text Utils
               </button>
             </h2>
             <div
@@ -35,22 +42,22 @@ export default function About({ title = "About Text Utils", mode = "light" }) {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                <strong>This is the first item’s accordion body.</strong> It is
-                shown by default, until the collapse plugin adds the appropriate
-                classNamees that we use to style each element. These classNamees
-                control the overall appearance, as well as the showing and
-                hiding via CSS transitions. You can modify any of this with
-                custom CSS or overriding our default variables. It’s also worth
-                noting that just about any HTML can go within the{" "}
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+                This is a application that allows you to manipulate text in
+                various ways. You can convert text to uppercase, lowercase,
+                sentence case, and more. It also provides features like counting
+                vowels and consonants, removing extra spaces, and copying text
+                to the clipboard. The application is designed to be
+                user-friendly and efficient for text processing tasks.
               </div>
             </div>
           </div>
-          <div className="accordion-item" style={{
-            backgroundColor: mode === "dark" ? "#333" : "#fff",
-            color: mode === "dark" ? "#fff" : "#000",
-          }}>
+          <div
+            className="accordion-item"
+            style={{
+              backgroundColor: mode === "dark" ? "#333" : "#fff",
+              color: mode === "dark" ? "#fff" : "#000",
+            }}
+          >
             <h2 className="accordion-header">
               <button
                 className="accordion-button collapsed"
@@ -59,8 +66,12 @@ export default function About({ title = "About Text Utils", mode = "light" }) {
                 data-bs-target="#collapseTwo"
                 aria-expanded="false"
                 aria-controls="collapseTwo"
+                style={{
+                  backgroundColor: mode === "dark" ? "#333" : "#fff",
+                  color: mode === "dark" ? "#fff" : "#000",
+                }}
               >
-                Accordion Item #2
+                Features
               </button>
             </h2>
             <div
@@ -69,22 +80,26 @@ export default function About({ title = "About Text Utils", mode = "light" }) {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                <strong>This is the second item’s accordion body.</strong> It is
-                hidden by default, until the collapse plugin adds the
-                appropriate classNamees that we use to style each element. These
-                classNamees control the overall appearance, as well as the
-                showing and hiding via CSS transitions. You can modify any of
-                this with custom CSS or overriding our default variables. It’s
-                also worth noting that just about any HTML can go within the{" "}
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+                This application includes several features to enhance your text
+                editing experience:
+                <ul>
+                  <li>Convert text to uppercase</li>
+                  <li>Convert text to lowercase</li>
+                  <li>Convert text to sentence case</li>
+                  <li>Count vowels and consonants</li>
+                  <li>Remove extra spaces</li>
+                  <li>Copy text to clipboard</li>
+                </ul>
               </div>
             </div>
           </div>
-          <div className="accordion-item" style={{
-            backgroundColor: mode === "dark" ? "#333" : "#fff",
-            color: mode === "dark" ? "#fff" : "#000",
-          }}>
+          <div
+            className="accordion-item"
+            style={{
+              backgroundColor: mode === "dark" ? "#333" : "#fff",
+              color: mode === "dark" ? "#fff" : "#000",
+            }}
+          >
             <h2 className="accordion-header">
               <button
                 className="accordion-button collapsed"
@@ -93,8 +108,12 @@ export default function About({ title = "About Text Utils", mode = "light" }) {
                 data-bs-target="#collapseThree"
                 aria-expanded="false"
                 aria-controls="collapseThree"
+                style={{
+                  backgroundColor: mode === "dark" ? "#333" : "#fff",
+                  color: mode === "dark" ? "#fff" : "#000",
+                }}
               >
-                Accordion Item #3
+                Browser Compatibility
               </button>
             </h2>
             <div
@@ -103,15 +122,11 @@ export default function About({ title = "About Text Utils", mode = "light" }) {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                <strong>This is the third item’s accordion body.</strong> It is
-                hidden by default, until the collapse plugin adds the
-                appropriate classNamees that we use to style each element. These
-                classNamees control the overall appearance, as well as the
-                showing and hiding via CSS transitions. You can modify any of
-                this with custom CSS or overriding our default variables. It’s
-                also worth noting that just about any HTML can go within the{" "}
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+                This application is designed to work on all modern browsers,
+                including Chrome, Firefox, Safari, and Edge. However, some
+                features may not be fully supported on older browsers. We
+                recommend using the latest version of your preferred browser for
+                the best experience.
               </div>
             </div>
           </div>

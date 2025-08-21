@@ -77,9 +77,9 @@ export default function TextForm({ heading, mode = 'light',showAlert,buttonColor
       <div className="container my-3">
         <h2>Your Text Summary</h2>
         <p>
-          {text === "" ? 0 : text.split(" ").length} words and {text.length} characters
+          {text === "" ? 0 : text.split(" ").filter((element)=>{return element.length!==0}).length} words and {text.length} characters
         </p>
-        <p>It will take {0.008 * text.split(" ").length} minutes to read.</p>
+        <p>It will take {0.008 * (text === "" ? 0 : text.split(" ").filter((element)=>{return element.length!==0}).length)} minutes to read.</p>
         <h2>Preview</h2>
         <p>{text.length > 0 ? text : "Nothing to preview!"}</p>
       </div>
